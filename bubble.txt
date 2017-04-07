@@ -1,0 +1,60 @@
+decl
+ 
+integer ab[10],i,j,swap,n;
+
+enddecl
+
+start
+
+i=0;
+
+read(n);
+
+while(i<n) do
+
+	read(ab[i]);
+
+	i=i+1;
+
+endwhile;
+i=0;
+
+
+
+j=0;
+
+while(i<n-1) do
+
+	while(j<n-i-1) do
+	
+		if(ab[j]>ab[j+1]) then
+
+			swap=ab[j];
+
+			ab[j]=ab[j+1];
+		
+			ab[j+1]=swap;
+		
+		endif;
+		
+		j=j+1;
+	
+	endwhile;
+	
+	j=0;
+
+	i=i+1;
+
+endwhile;
+
+i=0;
+
+while(i<n) do
+
+	write(ab[i]);
+
+	i=i+1;
+
+endwhile;
+
+end

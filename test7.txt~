@@ -1,0 +1,26 @@
+decl
+ integer fun(integer x),a;
+enddecl
+
+integer fun(integer x)
+{
+decl
+enddecl
+  return x;
+ end
+}
+
+integer main()
+{
+ decl
+  integer b,c;
+ enddecl
+
+ start
+  read(b);
+  c = fun(b);
+  write(c);
+
+  return 0;
+ end
+}

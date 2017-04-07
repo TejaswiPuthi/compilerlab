@@ -1,0 +1,33 @@
+%{	
+  	#define YYSTYPE struct tnode*
+  	#include<stdio.h>
+  	#include<stdlib.h>
+  	#include "y.tab.h"
+  	#include "stg7.c"
+
+
+%}
+
+%%
+
+"read"  {return READ;}
+"write" {return WRITE;}
+
+[a-z]  { 	 char*varn =(char *) malloc(sizeof(char));
+		 *varn = *yytext;
+		 yylval=TreeCreate(type_int,ID,0,varn,NULL,NULL,NULL,NULL);
+		 return ID;  }
+[0-9]+ {yylval=makeLeafNode(atoi(yytext));
+		return NUM;}
+[=]    {return ASGN;}
+[+]    {return PLUS;}
+[*]    {return MUL; }
+
+[ \t]	{}
+[\n]   {return NL;}
+.      {return *yytext;}
+%%
+int yywrap()
+{
+	return 1;
+}

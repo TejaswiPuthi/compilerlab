@@ -1,0 +1,35 @@
+decl
+integer w,x;
+integer add(integer a,integer b);
+enddecl
+integer add(integer a,integer b)
+{
+decl 
+integer c;
+enddecl
+start
+
+
+c=a-b;
+
+
+return c;
+end
+}
+
+integer main()
+{
+decl
+integer p,i;
+enddecl
+start
+
+read(w);
+read(x);
+p=add(w,x);
+write(p);
+
+return 0;
+end
+}
+

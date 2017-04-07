@@ -1,0 +1,14 @@
+decl
+
+integer j;
+integer a[6];
+enddecl
+start
+i=5;
+while(i>0) do
+read(a[i]);
+write(a[i]);
+i=i-1;
+endwhile;
+write(i);
+end

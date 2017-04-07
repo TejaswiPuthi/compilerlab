@@ -1,0 +1,56 @@
+%{
+	#include<stdio.h>
+	#include<stdlib.h>
+	int array[26];
+
+%}
+
+%union
+{
+	char character;
+	int integer;
+
+
+};
+
+%type <integer> NUM
+%type <character> ID
+%type <integer> E
+
+
+
+%token ID READ WRITE NUM NL PLUS MUL ASGN
+
+
+%left PLUS 
+%left MUL
+
+%%
+start : Slist NL {exit(1);}
+;
+Slist : Slist Stmt 
+		| Stmt
+;
+Stmt : ID ASGN E ';'  {array[$1-'a']=$3;}
+	 | READ'('ID')'';'  {scanf("%d",&array[$3-'a']);}
+	 | WRITE'('E')'';'  {printf("%d\n",$3);}
+	 ;
+E   : E PLUS E {$$=$1+$3;}
+	 |E MUL E {$$=$1*$3;}
+	 |'('E')' {$$=$2;}
+	 | NUM {$$=$1;} 
+	 |ID   {$$=array[$1-'a'];}
+;
+
+%%
+
+int yyerror(char const *s)
+{
+	printf("yyerror %s", s);
+}
+
+main()
+{
+	yyparse();
+	return 1;
+}

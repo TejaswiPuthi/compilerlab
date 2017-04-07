@@ -1,0 +1,37 @@
+%{
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <string.h>
+      #define YYSTYPE char*
+      void yyerror(char const *s) ;
+      char str[50];
+%}
+
+%token String NEWLINE
+
+%%
+
+start : STRING NEWLINE { exit(1);}
+;
+
+STRING : String '+' String {
+				
+				strcpy(str,$1);
+				strcat(str,$3);
+				strcpy($$,str);
+				printf("%s\n",$$);
+			}
+;
+%%
+
+void yyerror(char const *s) 
+{ 
+    printf("yyerror  %s\n",s); 
+    return ;
+} 
+int main()
+{
+  yyparse();
+  return 1;
+}
+			

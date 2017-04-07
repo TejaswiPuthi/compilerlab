@@ -1,0 +1,73 @@
+decl
+	integer ar[100], readarr(integer tmp), writearr(integer temp);
+	boolean b;
+enddecl
+
+integer readarr(integer tmp)
+{
+  decl
+    integer count;
+  enddecl
+
+  start
+    count=0;
+    while(count < tmp) do
+      read(ar[count]);
+      count=count+1;
+    endwhile;
+	write(103);
+	write(tmp);
+    return 0;
+  end
+}
+
+integer writearr(integer temp)
+{
+  decl
+    integer count;
+  enddecl
+
+  start
+	write(101);
+	write(temp);
+  	count = 0;
+    while(count < temp) do
+      write(ar[count]);
+      count = count+1;
+    endwhile;
+    return 0;
+  end
+}
+
+integer main() {
+decl
+	integer n, i, j, x, temp, count;
+enddecl
+start
+	read(n);
+	write(104);
+	readarr(n);
+	i=0;
+	j=1;
+	write(102);
+	write(n);
+	while(i<n) do
+		j=i+1;
+		while(j<n) do
+			if(ar[i]>ar[j]) then
+				temp=ar[i];
+				ar[i]=ar[j];
+				ar[j]=temp;
+			else
+				temp=ar[i];
+			endif;
+			j=j+1;
+		endwhile;
+		i=i+1;
+	endwhile;
+	write(100);
+	write(n);
+	writearr(n);
+	return 0;
+end
+}

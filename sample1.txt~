@@ -1,0 +1,12 @@
+decl
+integer b;
+integer a;
+enddecl
+start
+b=0;
+read(a);
+while(b<a) do
+  write(b);
+  b=b+1;
+endwhile;
+end

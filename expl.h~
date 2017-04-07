@@ -1,0 +1,39 @@
+/** Sample Expression Tree Node Structure **/
+
+struct tnode {
+
+int TYPE; // Integer, Boolean or Void (for statements)
+
+/* Must point to the type expression tree for user defined types */
+
+int NODETYPE;
+
+/* this field should carry following information:
+
+* a) operator : (+,*,/ etc.) for expressions
+
+* b) statement Type : (WHILE, READ etc.) for statements */
+
+char* NAME; // For Identifiers/Functions
+
+int VALUE; // for constants
+
+tnode *ArgList; // List of arguments for functions
+
+tnode *left, *right;
+
+/* Maximum of three subtrees (3 required for IF THEN ELSE */
+
+
+
+}
+
+struct tnode *TreeCreate(TYPE,NODETYPE,VALUE,NAME,ArgList,left, right);
+/*Make a leaf tnode and set the value of val field*/
+struct tnode* makeLeafNode(int n);
+
+/*Make a tnode with opertor, left and right branches set*/
+struct tnode* makeOperatorNode(int op,struct tnode *l,struct tnode *r);
+
+/*To evaluate an expression tree*/
+int evaluate(struct tnode *t);

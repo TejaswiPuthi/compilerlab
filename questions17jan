@@ -1,0 +1,28 @@
+1. Program to recognize nested IF control statements and display the levels of nesting.
+2. Program to recognize a valid variable, which starts with a letter,followed by any number of letters or digits.
+3. Set YYSTYPE to char and do Infix to postfix conversion where lexemes are either operators or single characters instead of numbers.
+
+Sample input: a+b*c
+
+Sample output: abc*+
+
+Hint: This is similar to infix to postfix conversion in stage 2. Here we need to output the lexemes of a token instead of just the token names. Here each lexeme is a single character. Use yylval to pass the lexemes as the attribute values for each token.
+
+4. Set YYSTYPE to char* and do symbolic infix to postfix conversion:
+
+Sample input: hello+my*world
+
+Sample output: hello my world * +
+
+5. Set YYSTYPE to char* and do symbolic infix to prefix conversion:
+
+Sample input: hello+my*world
+
+Sample output: * + hello my world
+
+6.Infix to postfix conversion.
+7.Read and write pairs.
+8.Simple Calculator.
+
+9.Modify the infix_to_postfix.y such that it gives the value of the complete expression as output. (Hint : use $$ to assign value to head of a rule).
+10.Now write a program to concatenate two strings using the operator '+'.

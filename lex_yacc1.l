@@ -1,0 +1,32 @@
+%{
+	#include <stdio.h>
+	#include "y.tab.h"
+	#include <stdlib.h>
+
+%}
+
+letter [a-zA-Z]
+DIG [0-9]
+IF [i][f]
+THEN [t][h][e][n]
+ELSE [e][l][s][e]
+newline [\n]
+B [()]
+
+%%
+{letter} {yylval=0;return VAR;}
+{DIG} {yylval =0;return DIG;}
+{IF} {return IF;}
+{THEN} {return THEN;}
+{ELSE} {return ELSE;}
+{newline} {return newline;}
+{B} {return B;}
+[+] {return PLUS;}
+[-] {return MINUS;}
+[=] {return ASSIGN;}
+
+
+%%
+int yywrap() {
+	return 1;
+}

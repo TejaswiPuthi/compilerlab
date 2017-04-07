@@ -1,0 +1,1 @@
+yacc -d stg9.y;lex stg9.l;gcc y.tab.c lex.yy.c -o stg9.exe -w;./stg9.exe bubble9.txt;lex label.l;gcc lex.yy.c ;./a.out target.xsm;cd xsm_expl/;./xsm -e ../targetnew.xsm

@@ -1,0 +1,27 @@
+decl
+integer x, z;
+integer inc(integer y);
+enddecl
+integer inc(integer y)
+{
+decl
+integer res;
+enddecl
+start
+res=y+1;
+return res;
+end
+}
+integer main()
+{
+decl
+enddecl
+start
+read(x);
+z=inc(x);
+write(z);
+return 0;
+end
+}
+
+

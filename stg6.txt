@@ -1,0 +1,12 @@
+decl
+boolean b[6];
+enddecl
+start
+b[5]=true;
+b[4]=(4>6);
+if(b[5] && b[4])
+then write(1);
+else
+write(0);
+endif;
+end

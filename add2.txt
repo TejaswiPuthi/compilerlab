@@ -1,0 +1,17 @@
+decl
+
+enddecl
+
+integer main()
+{
+decl
+integer p;
+enddecl
+start
+p=2+3;
+write(p);
+write(p+5);
+return 0;
+end
+}
+
